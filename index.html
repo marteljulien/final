@@ -1,0 +1,181 @@
+<!DOCTYPE HTML>
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Culture V&eacute;lo Fr&eacute;jus</title>
+
+
+<script src="jqtouch/jquery.1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="jqtouch/jqtouch.min.js" type="text/javascript" charset="utf-8"></script>
+<link href="jqtouch/jqtouch.min.css" rel="stylesheet" type="text/css">
+<link href="themes/jqt/theme.min.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" charset="utf-8">
+            var jQT = new $.jQTouch({
+                icon: 'icon.png',
+                addGlossToIcon: true,
+                startupScreen: 'http://www.julienmartel.fr/culture/Default.png',
+                statusBar: 'black',
+            });
+			
+			    $(document).ready(function() { 
+    $.ajax({ 
+                type: "GET", 
+                url: "http://www.webspaceinvader.com/rsslib/rss.xml", 
+                dataType: "xml", 
+                success: parseXml, 
+                error: errorMsg 
+        }); 
+        function parseXml(xml) 
+        { 
+                $('#output').empty(); 
+                $(xml).find("item").each(function() 
+                { 
+                        var title = $(this).find('title').text();
+                        var pubDate = $(this).find('pubDate').text();
+                        var desc = $(this).find('description').text(); 
+                        var listItem = $('<li class="myrss">' + title + '<br/>' +
+pubDate + '<br/>' + desc + '</li>');
+                        $("#output").append(listItem);
+                });
+        }
+        function errorMsg() { 
+                $("#output").append("error getting xml feed"); 
+        } 
+  });
+
+</script>
+<style type="text/css">
+.center {
+	display: block;
+	margin-left: auto;
+    margin-right: auto;
+	margin-top: 10px;
+	text-align: center;
+}
+.light {
+	color: #FFF;
+}
+.myrss {
+	color: #FFF;
+}
+</style>
+</head>
+
+<body>
+	<div id="home" class="current">
+        <img src="images/culture-velo.jpg" alt="Culture V&eacute;lo Fr&eacute;jus" width="220" height="107" class="center">
+        <p class="center">Ouvert du lundi au samedi - 9h-12h et 14h-19h <br>
+      <em>* Fermé le lundi matin et le dimanche </em></p>
+        <ul class="rounded">
+    			<li class="arrow"><a class="cube" href="#velos">Nos vélos </a> </li>
+                <li class="arrow"><a class="cube" href="#services">Nos services </a> </li>
+   				<li class="arrow"><a class="cube" href="#equipe">Notre équipe </a></li>
+                <li class="arrow"><a class="cube" href="#information">Infos</a></li>
+   	  </ul>
+        <div class="info">
+                <p>&copy; Julien Martel</p>
+        </div>
+    </div>
+<div id="velos">
+    <div class="toolbar">
+                <h1>Nos v&eacute;los</h1>
+                <a href="#" class="back">Retour</a>
+            </div>
+				
+        <ul class="rounded">
+    			<li class="arrow"><a class="cube" href="#route">Nos v&eacute;los route </a> </li>
+                <li class="arrow"><a class="cube" href="#vtt">Nos VTT </a> </li>
+   				<li class="arrow"><a class="cube" href="#enfant">Nos v&eacute;los enfants </a></li>
+                <li class="arrow"><a class="cube" href="#ville">Nos v&eacute;los villes</a></li>
+   	  </ul>
+ 
+    </div>
+        <div id="services">
+    <div class="toolbar">
+                <h1>Nos services</h1>
+                <a href="#" class="back">Retour</a>
+            </div>
+            <ul class="rounded">
+    			<li class="light">
+    			    <table width="100%" border="0">
+  <tr>
+    <td colspan="2"><strong>Transmission</strong></td>
+  </tr>
+  <tr>
+    <td><h6><em>R&eacute;glage d&eacute;railleur</em></h6></td>
+	<td><div align="right"><h6>9.00 €</h6></div></td> 
+  </tr>
+   <tr>
+    <td colspan="2">&nbsp;<br><strong>Roue</strong></td>
+  </tr>
+  <tr>
+    <td><h6><em>D&eacute;voilage</em></h6></td>
+	<td><div align="right"><h6>14.00 €</h6></div></td> 
+  </tr>
+  <tr>
+   <tr>
+    <td colspan="2">&nbsp;<br><strong>Tarif horaire</strong></td>
+  </tr>
+  <tr>
+    <td><h6><em>Heure de main d'&oelig;vre</em></h6></td>
+	<td><div align="right"><h6>42.00 €</h6></div></td> 
+  </tr>
+</table>
+                
+    			</li>
+      </ul>
+    </div>
+
+    <div id="equipe">
+    <div class="toolbar">
+                <h1>Notre &eacute;quipe</h1>
+                <a href="#" class="back">Retour</a>
+            </div>
+            <ul class="rounded">
+    			<li class="light">
+				<center>
+    			    Patrick Beraud<br /><em>Le Boss</em><br />
+					<img src="images/patrick.jpg" alt="Patrick Beraud" width="215" height="160" class="center"><br /><br />
+    			    Carole Beraud<br /><em>La Patronne</em><br />
+					<img src="images/carole.jpg" alt="Carole Beraud" width="215" height="160" class="center"><br /><br />
+                    Julien Martel<br /><em>Responsable</em><br />
+					<img src="images/julien.jpg" alt="Julien Martel" width="215" height="160" class="center"><br /><br />
+    			    Charley Bauer<br /><em>Technicien vendeur</em><br />
+					<img src="images/charley.jpg" alt="Charley Bauer" width="215" height="160" class="center"><br /><br />
+                    Arnaud Beraud<br /><em>Apprenti</em><br />
+					<img src="images/arnaud.jpg" alt="Arnaud Beraud" width="215" height="160" class="center">					
+					<br>
+
+                <br />
+				</center>
+                
+    			</li>
+      </ul>
+    </div>
+    <div id="information">
+    <div class="toolbar">
+                <h1>Infos</h1>
+                <a href="#" class="back">Retour</a>
+            </div>
+    <ul class="rounded">
+    			<li  class="light">
+                PBS Bike<br />
+                ZI l'Intendance, lot. n°2<br />
+				Quartier la Palud<br />
+				83600 Fr&eacute;jus<br /><br />
+                T&eacute;l&eacute;phone :<a href="tel:0494537402">04 94 53 74 02</a>
+				E-mail :<a href="mailto:83frejus@culturevelo.com">83frejus@culturevelo.com</a>
+                </li>
+            </ul>
+			<br>
+			    <ul class="rounded">
+    			<li  class="light">
+                Mode de paiement accept&eacute;<br /><br />
+                <h5>- CB<br />
+				- Esp&egrave;ces<br />
+				- Ch&egrave;ques Cadhoc<br />
+                - Franfinance (3 &agrave; 10 fois sans frais)</h5>
+                </li>
+            </ul>
+    </div>
+</body>
+</html>
